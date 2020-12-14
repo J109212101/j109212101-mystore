@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* modified by Min-Huang Ho */
 Route::get('/', function () {
     return view('welcome');
 });
