@@ -45,7 +45,7 @@
   </div>
 </nav>
 @auth
-<form action="/insert/" method=post>
+<form action="/insert" method=post>
 	@csrf
 最新消息：<input type=text size=40 name=title>
 <input type=submit value="新增">
