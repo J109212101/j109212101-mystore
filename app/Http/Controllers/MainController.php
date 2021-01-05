@@ -14,7 +14,7 @@ class MainController extends Controller
     }
 
     function insert(Request $req) {
-    	if ($request->isMethod('post')) {
+    	if ($req->isMethod('post')) {
 	    	$title = $req->input('title');
 	    	$data = new Headlines;
 	    	$data->title = $title;
