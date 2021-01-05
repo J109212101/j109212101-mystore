@@ -8,12 +8,12 @@ use App\Models\Headlines;
 
 class MainController extends Controller
 {
-    function index() {
+    public function index() {
     	$titles = Headlines::all();
     	return view("index", compact('titles'));
     }
 
-    function insert(Request $req) {
+    public function insert(Request $req) {
     	if ($req->isMethod('post')) {
 	    	$title = $req->input('title');
 	    	$data = new Headlines;
@@ -23,7 +23,7 @@ class MainController extends Controller
     	return redirect("/");
     }
 
-    function logout() {
+    public function logout() {
     	Auth::logout();
     	return redirect("/");	
     }
