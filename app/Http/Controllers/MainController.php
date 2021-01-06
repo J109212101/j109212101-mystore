@@ -15,13 +15,20 @@ class MainController extends Controller
 
     public function insert(Request $req) {
     	if ($req->isMethod('post')) {
-	    	$title = $req->input('title');
+			$title = $req->input('title');
+		  if (empty($title))
+           return "請輸入文字";
+          else
 	    	$data = new Headlines;
 	    	$data->title = $title;
 	    	$data->save();
     	}
     	return redirect("/");
-    }
+	}
+	function remove($id) {
+		Headlines::where('id', $id)->delete();
+		return redirect("/");
+		}
 
     public function logout() {
     	Auth::logout();

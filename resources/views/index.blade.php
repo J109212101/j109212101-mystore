@@ -8,24 +8,24 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <title>何敏煌</title>
+    <title>林耀六</title>
   </head>
   <body>
   	<div class="container">
-	    <h1>何敏煌的期末作業</h1>
+	    <h1>林耀六的期末作業</h1>
 	    <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">J107001119</a>
+    <a class="navbar-brand" href="#">J109202101</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">首頁</a>
+          <a class="nav-link active" aria-current="page" href="dashboard">返回</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/lotto/">樂透</a>
+          <a class="nav-link" href="/lucky/">樂透</a>
         </li>
         @guest
         <li class="nav-item">
@@ -52,16 +52,17 @@
 </form>
 @endauth
 <table class="table table-striped">
-	<tr>
-		<th>編號</th><th>馬路消息</th><th>時間</th>
-	</tr>
-@foreach ($titles as $item)
-	<tr>
-		<td>{{ $item->id }}</td>
-		<td>{{ $item->title }}</td>
-		<td>{{ $item->created_at }}</td>
-	</tr>
-@endforeach
+   <tr><th>編號</th><th>馬路消息</th><th>時間</th>@auth<th>管理</th>@endauth
+   @foreach ($titles as $item)
+<tr>
+    <td>{{$item -> id}}</td>
+    <td>{{$item -> title}}</td>
+    <td>{{$item -> created_at}}</td>
+    @auth
+    <td><a href="/remove/{{$item -> id}}/">刪除</a></td>
+    @endauth
+</tr>
+@endforeach 
 </table>
 	</div>
     <!-- Optional JavaScript; choose one of the two! -->

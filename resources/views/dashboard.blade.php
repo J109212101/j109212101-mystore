@@ -1,7 +1,9 @@
 <x-app-layout>
+<a class="ml-4 text-sm:items-center text-gray-700 underline" href="/">首頁 <span class="sr-only"></span></a>
     <x-slot name="header">
+    
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('林耀六的網頁') }}
         </h2>
     </x-slot>
 
